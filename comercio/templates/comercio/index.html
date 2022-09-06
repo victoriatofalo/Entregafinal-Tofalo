@@ -1,0 +1,46 @@
+{% extends 'comercio/base.html' %}
+
+{% block listado_productos %}
+{% block inicio_sesion %}
+    {% if request.user.is_authenticated %}
+        <div class="container text-center">
+            <h1 style="color:white; font-size: 25px">Bienvenid@ {{request.user}}!</h1>
+            <img src="{{imagen}}" width="100" height="100" alt="Avatar">
+        </div>
+    {% endif %}
+{% endblock inicio_sesion %}
+
+
+<form method="get">    
+         
+    {{ formulario.as_p }}
+
+    <input type="submit" value="Buscar producto">
+    
+</form>
+<div class="text-center">
+<h2 class="section-heading text-uppercase">Productos</h2>
+<h3 class="section-subheading text-muted">Todos nuestros productos pueden personalizarse con el diseño que elijas!</h3>
+</div>   
+    {% for producto in productos %}
+        <div class="col-lg-4 col-sm-6 mb-4">
+            <!-- Portfolio item 1-->
+            <div class="portfolio-item">
+                
+                    <img class="img-fluid" src="http://www.ghypoloclub.com.ar/images/blog/porque-elegir-fibra-de-poliester-en-la-confeccion-de-uniformes.jpg" alt="..." />
+                </a>
+                <div class="portfolio-caption">
+                    <div class="portfolio-caption-heading"><strong>{{producto.nombre}}</strong></div>
+                    <div class="portfolio-caption-subheading text-muted">
+                    </br> Material: {{producto.material}}
+                    </br> $ {{producto.precio}}
+                    
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    {% endfor %}
+    
+
+{% endblock listado_productos %}

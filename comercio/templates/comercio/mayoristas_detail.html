@@ -1,0 +1,23 @@
+{% extends 'comercio/base.html' %}
+
+{% block listado_productos %}
+
+ <div class="col-lg-4 col-sm-6 mb-4">
+            <!-- Portfolio item 1-->
+            
+                <div class="portfolio-caption">
+                    <div class="portfolio-caption-heading"><strong>Nombre: {{registromayoristas.nombre}}</strong></div>
+                    <div class="portfolio-caption-subheading text-muted">
+                    <br> Empresa: {{registromayoristas.empresa}}
+                    <br> Correo: {{registromayoristas.correo}}
+                    <br> Fecha en la que se agregó: {{registromayoristas.fecha}}
+                    <div><a href ="{% url 'mayoristas_update' registromayoristas.id %}">Editar información</a></div>
+                    <div><a href ="{% url 'mayoristas_delete' registromayoristas.id %}">Eliminar registro</a></div>
+                    </div>
+                </div>
+                <a href ="{% url 'mayoristas' %}">Volver</a>
+            </div>
+            
+        </div>
+
+{% endblock listado_productos %}

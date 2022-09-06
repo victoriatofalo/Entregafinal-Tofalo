@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        {% load static %} 
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>SID Soluciones gráficas</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="data:image/png;base64,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" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'comercio/css/styles.css' %}" rel="stylesheet" />
+    </head>
+                
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="#page-top"><img src="data:image/png;base64,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" alt="..." /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                
+                    <a style="font-size: 18px"class="navbar-brand" href="{% url 'productos' %}">Inicio</a>
+                    <a style="font-size: 18px"class="navbar-brand" href="{% url 'quienes_somos' %}">Quienes somos</a>
+                    {% if request.user.username %}
+                        <a style="font-size: 18px" class="navbar-brand" href="{% url 'inicio' %}">Buscar productos</a>
+                        <a style="font-size: 18px" class="navbar-brand" href="{% url 'mayoristas' %}">Mayoristas</a>
+                        <a style="font-size: 18px"class="btn btn-primary btn-xl text-uppercase" href="{% url 'logout' %}">Logout</a>
+                        <a style="font-size: 18px"class="container text-center" href="{% url 'perfil' %}">Mi perfil</a>
+                        <a style="font-size: 18px"class="container text-center" href="{% url 'mensajes_crear' %}">Mensajes</a>
+                    {% else %}
+                    <a style="font-size: 18px"class="btn btn-primary btn-xl text-uppercase" href="{% url 'login' %}">Login</a>
+                    {% endif %}
+            </div>
+            
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead">
+            
+            <p>
+            <div class="container">
+                {% block inicio_sesion %}
+                {% endblock inicio_sesion %}
+                <div class="masthead-subheading">Hacemos realidad tus ideas</div>
+                <div class="masthead-heading text-uppercase">SID Soluciones gráficas</div>
+                <a class="btn btn-primary btn-xl text-uppercase" href="{% url 'quienes_somos' %}">Conocenos!</a>
+                
+            </div>
+        </header>
+        <div>
+        </div>
+
+        <div> 
+            
+        </div>
+        <!-- Services-->
+        {% block mayoristas %}
+        {% endblock mayoristas %}
+        
+        <!-- Portfolio Grid-->
+        <section class="page-section bg-light" id="portfolio">
+            <div class="container">
+                
+                <div class="row">
+                    {% block listado_productos %}
+                    
+                    {% endblock listado_productos %}
+                </div>
+            </div>
+        </section>
+        <!-- About-->
+        {% block sorteo %}
+        {% endblock sorteo %}
+            
+        <!-- Contact-->
+        <section class="page-section" id="contact">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Contactanos!</h2>
+                    <h3 class="section-subheading text-muted">Contanos tu idea que te brindamos la mejor opción</h3>
+                </div>                
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="footer py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; Your Website 2022</div>
+                    <div class="col-lg-4 my-3 my-lg-0">
+                        <a class="btn btn-dark btn-social mx-2" href="https://facebook.com/sidsolucionesgraficas" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="https://instagram.com/sid.solucionesgraficas" aria-label="Instagram"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
+                        <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Portfolio Modals-->
+        <!-- Portfolio item 1 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Project Name</h2>
+                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/1.jpg" alt="..." />
+                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                    <ul class="list-inline">
+                                        <li>
+                                            <strong>Client:</strong>
+                                            Threads
+                                        </li>
+                                        <li>
+                                            <strong>Category:</strong>
+                                            Illustration
+                                        </li>
+                                    </ul>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close Project
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 2 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Project Name</h2>
+                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/2.jpg" alt="..." />
+                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                    <ul class="list-inline">
+                                        <li>
+                                            <strong>Client:</strong>
+                                            Explore
+                                        </li>
+                                        <li>
+                                            <strong>Category:</strong>
+                                            Graphic Design
+                                        </li>
+                                    </ul>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close Project
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 3 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Project Name</h2>
+                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/3.jpg" alt="..." />
+                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                    <ul class="list-inline">
+                                        <li>
+                                            <strong>Client:</strong>
+                                            Finish
+                                        </li>
+                                        <li>
+                                            <strong>Category:</strong>
+                                            Identity
+                                        </li>
+                                    </ul>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close Project
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 4 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Project Name</h2>
+                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/4.jpg" alt="..." />
+                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                    <ul class="list-inline">
+                                        <li>
+                                            <strong>Client:</strong>
+                                            Lines
+                                        </li>
+                                        <li>
+                                            <strong>Category:</strong>
+                                            Branding
+                                        </li>
+                                    </ul>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close Project
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 5 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Project Name</h2>
+                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/5.jpg" alt="..." />
+                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                    <ul class="list-inline">
+                                        <li>
+                                            <strong>Client:</strong>
+                                            Southwest
+                                        </li>
+                                        <li>
+                                            <strong>Category:</strong>
+                                            Website Design
+                                        </li>
+                                    </ul>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close Project
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 6 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Project Name</h2>
+                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/6.jpg" alt="..." />
+                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                    <ul class="list-inline">
+                                        <li>
+                                            <strong>Client:</strong>
+                                            Window
+                                        </li>
+                                        <li>
+                                            <strong>Category:</strong>
+                                            Photography
+                                        </li>
+                                    </ul>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close Project
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'comercio/js/scripts.js' %}"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>

@@ -1,0 +1,10 @@
+{% extends 'comercio/base.html' %}
+
+{% block listado_productos %}
+
+<form method="POST"> {% csrf_token %}
+{{form.as_p}}
+<input type="submit" value="Crear">
+</form>
+
+{% endblock listado_productos %}

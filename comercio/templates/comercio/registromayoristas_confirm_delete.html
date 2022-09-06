@@ -1,0 +1,12 @@
+{% extends 'comercio/base.html' %}
+
+{% block listado_productos %}
+
+<form method = "post"> {% csrf_token %}
+    Desea borrar el registro de la empresa {{registromayoristas.empresa}} ?
+    <input type="submit" value="Confirmar">
+    <a href ="{% url 'listado_mayorista' %}">Volver</a>
+</form>
+
+
+{% endblock listado_productos %}

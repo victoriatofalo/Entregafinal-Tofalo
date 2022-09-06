@@ -1,0 +1,12 @@
+{% extends 'comercio/base.html' %}
+{% block listado_productos %}
+
+<p> Estás editando la información de: {{request.user.username}}<p>
+<form method="post"> {% csrf_token %}
+
+    {{form.as_p}}
+    <input type="submit" value="Editar usuario">
+
+    </form>
+
+{% endblock listado_productos %}

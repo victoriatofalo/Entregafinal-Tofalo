@@ -1,0 +1,28 @@
+{% extends 'comercio/base.html' %}
+
+{% block listado_productos %}
+
+
+{% for producto in object_list %}
+        <div class="col-lg-4 col-sm-6 mb-4">
+            <!-- Portfolio item 1-->
+            <div class="portfolio-item">
+                
+                    
+                    <img class="img-fluid" src="http://www.ghypoloclub.com.ar/images/blog/porque-elegir-fibra-de-poliester-en-la-confeccion-de-uniformes.jpg" alt="..." />
+                </a>
+                <div class="portfolio-caption">
+                    <div class="portfolio-caption-heading"><strong>{{producto.nombre}}</strong></div>
+                    <div class="portfolio-caption-subheading text-muted">
+                    
+                    <a href="{% url 'productos_detail' producto.id %}"> Ver producto </a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+{% endfor %}
+    {% if request.user.username %}
+    <a href="{% url 'productos_crear' %}"> Cargar nuevo producto </a>
+    {% endif %}
+{% endblock listado_productos %}

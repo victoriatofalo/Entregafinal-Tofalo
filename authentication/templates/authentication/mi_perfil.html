@@ -1,0 +1,8 @@
+{% extends 'comercio/base.html' %}
+{% block listado_productos %}
+
+<p> Estás editando la información de: {{request.user.username}}<p>
+    <p><a href="{% url 'editar_usuario' %}"> Editar información de usuario </a></p>
+    <p><a href="{% url 'agregar_avatar' %}"> Editar avatar </a></p>
+
+{% endblock listado_productos %}

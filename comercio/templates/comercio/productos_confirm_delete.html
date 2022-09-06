@@ -1,0 +1,12 @@
+{% extends 'comercio/base.html' %}
+
+{% block listado_productos %}
+
+<form method = "post"> {% csrf_token %}
+    Desea borrar el producto {{object.nombre}} ?
+    <input type="submit" value="Confirmar">
+    <a href ="{% url 'productos' %}">Volver</a>
+</form>
+
+
+{% endblock listado_productos %}
